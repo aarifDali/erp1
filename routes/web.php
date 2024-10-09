@@ -17,6 +17,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+Route::group(['prefix'=>'admin', 'namespace' => 'App\Http\Controllers'], function(){
+    Route::resource('company', 'CompanyController');
+});
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
