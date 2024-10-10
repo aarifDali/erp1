@@ -20,6 +20,7 @@ Route::get('/', function () {
 
 Route::group(['prefix'=>'admin', 'namespace' => 'App\Http\Controllers'], function(){
     Route::resource('company', 'CompanyController');
+    Route::resource('item', 'ItemController');
 });
 
 Route::middleware([

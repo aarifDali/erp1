@@ -15,7 +15,7 @@ class CompanyController extends Controller
     public function index()
     {
         \Auth::user()->assignRole('Super Admin');
-        $companies = Company::all();
+        $companies = Company::paginate(5);
         return view('company.index', compact('companies'));
     }
 
