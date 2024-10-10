@@ -54,7 +54,7 @@ class CompanyController extends Controller
     public function edit(Company $company)
     {
         
-        return $company;
+        return view('company.edit', compact('company'));
     }
 
     /**
@@ -62,7 +62,15 @@ class CompanyController extends Controller
      */
     public function update(Request $request, Company $company)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required',
+            'email' => 'required|email|unique:companies,email,  '.$company->id,
+            'mobile' => 'required | digits:10',
+        ]);
+
+        $company->update($validated);
+
+        return redirect()->route('company.index');
     }
 
     /**
@@ -70,6 +78,8 @@ class CompanyController extends Controller
      */
     public function destroy(Company $company)
     {
-        //
+        $company->delete();
+
+        return redirect()->route('company.index');
     }
 }

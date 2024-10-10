@@ -8,7 +8,7 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="p-4">
-                <a class="float-right px-4 py-2 font-semibold text-sm bg-cyan-500 text-white rounded-full" href="{{ route('company.create') }}">Create</a><br>
+                <a class="float-right mb-3 px-4 py-2 font-semibold text-sm bg-cyan-500 text-white rounded-full" href="{{ route('company.create') }}">Create</a><br>
             </div>
             <div class="clear-both bg-white overflow-hidden shadow-xl sm:rounded-lg p-4">
                 <table class="table-auto min-w-full rounded text-sm">
@@ -29,6 +29,8 @@
                             <td class="border-b py-2">
                                 <a href="{{ route('company.edit', $company->id)}}">Edit</a>
                                 <form action="{{ route('company.destroy', $company->id)}}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
                                     <button type="submit" class="text-red-700">Delete</button>                              
                                 </form>
                             </td>
