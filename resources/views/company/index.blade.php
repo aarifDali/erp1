@@ -28,7 +28,13 @@
                     <tbody class="text-gray-700">
                         @foreach ($companies as $company)
                         <tr>
-                            <td class="border-b p-2">{{ $company->name }}</td>
+                            <td class="border-b p-2">{{ $company->name }}
+                                <div>
+                                    @foreach ($company->invoices as $invoice)
+                                        {{ $invoice->invoice_number }}
+                                    @endforeach
+                                </div>
+                            </td>
                             <td class="border-b p-2">{{ $company->email }}</td>
                             <td class="border-b p-2">{{ $company->mobile }}</td>
                             <td class="border-b p-2">

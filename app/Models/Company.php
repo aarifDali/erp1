@@ -13,4 +13,8 @@ class Company extends Model
         'email',
         'mobile'
     ];
+
+    public function invoices(){
+        return $this->hasMany(Invoice::class);
+    }
 }
