@@ -20,9 +20,9 @@
                     <thead class="bg-gray-300 ">
                         <tr>
                             <th class="text-left border-b py-2">Name</th>
-                            <th class="text-left border-b py-2">Description</th>
+                            {{-- <th class="text-left border-b py-2">Description</th>
                             <th class="text-left border-b py-2">HSN Code</th>
-                            <th class="text-left border-b py-2">SAC Code</th>
+                            <th class="text-left border-b py-2">SAC Code</th> --}}
                             <th class="text-left border-b py-2">Price</th>
                             <th class="text-left border-b py-2">Tax</th>
                             <th class="text-left border-b py-2">Action</th>
@@ -32,9 +32,9 @@
                         @foreach ($items as $item)
                         <tr>
                             <td class="border-b p-2">{{ $item->name }}</td>
-                            <td class="border-b p-2">{{ $item->description }}</td>
+                            {{-- <td class="border-b p-2">{{ $item->description }}</td>
                             <td class="border-b p-2">{{ $item->hsn_code }}</td>
-                            <td class="border-b p-2">{{ $item->sac_code }}</td>
+                            <td class="border-b p-2">{{ $item->sac_code }}</td> --}}
                             <td class="border-b p-2">{{ $item->price }}</td>
                             <td class="border-b p-2">{{ $item->tax }}</td>
                             <td class="border-b p-2">

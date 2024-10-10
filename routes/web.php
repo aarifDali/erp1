@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DocumentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,6 +22,14 @@ Route::get('/', function () {
 Route::group(['prefix'=>'admin', 'namespace' => 'App\Http\Controllers'], function(){
     Route::resource('company', 'CompanyController');
     Route::resource('item', 'ItemController');
+    Route::controller(DocumentController::class)->group(function() {
+        Route::get('/document/{type}', 'index')->name('document.index');
+        Route::get('/document/{type}/create', 'create')->name('document.create');
+        Route::post('/document/{type}/', 'store')->name('document.store');
+        Route::get('/document/{type}/edit/{document}', 'edit')->name('document.edit');
+        Route::patch('/document/{type}/update/{document}', 'update')->name('document.update');
+        Route::delete('/document/{type}/delete/{document}', 'destroy')->name('document.delete');
+    });
 });
 
 Route::middleware([

@@ -26,7 +26,7 @@
 
                     <div>
                         <x-label for="mobile" value="{{ __('Mobile') }}" />
-                        <x-input id="mobile" class="block mt-1 w-full" type="text" name="mobile" :value="old('email')" />
+                        <x-input id="mobile" class="block mt-1 w-full" type="text" name="mobile" :value="old('mobile')" />
                     </div>
 
                     <x-button class="mt-4">
