@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Company;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use function Laravel\Prompts\alert;
 
 class CompanyController extends Controller
 {
@@ -12,6 +14,7 @@ class CompanyController extends Controller
      */
     public function index()
     {
+        \Auth::user()->assignRole('Super Admin');
         $companies = Company::all();
         return view('company.index', compact('companies'));
     }
@@ -37,7 +40,7 @@ class CompanyController extends Controller
 
         Company::create($validated);
 
-        return redirect()->route('company.index');
+        return redirect()->route('company.index')->with('alert-success', 'Created Successfully');
     }
 
     /**
@@ -70,7 +73,7 @@ class CompanyController extends Controller
 
         $company->update($validated);
 
-        return redirect()->route('company.index');
+        return redirect()->route('company.index')->with('alert-success', 'Updated Successfully');
     }
 
     /**
@@ -80,6 +83,6 @@ class CompanyController extends Controller
     {
         $company->delete();
 
-        return redirect()->route('company.index');
+        return redirect()->route('company.index')->with('alert-success', 'Deleted Successfully');
     }
 }

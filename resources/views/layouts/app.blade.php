@@ -32,6 +32,13 @@
                 </header>
             @endif
 
+            @if (session('alert-success'))
+                <div class="text-grey-800 bg-green-300 p-2">{{ session('alert-success') }}</div>
+            @endif
+            @if (session('alert-danger'))
+                <div class="text-grey-800 bg-red-300 p-2">{{ session('alert-danger') }}</div>
+            @endif 
+
             <!-- Page Content -->
             <main>
                 {{ $slot }}
